@@ -6,18 +6,17 @@ internal class PasswordDetectorTest {
 
     @Test
     fun detect() {
-        val detector = BinaryDetector()
-        assertTrue(detector.detect("1"))
-        assertTrue(detector.detect("11"))
-        assertTrue(detector.detect("101"))
-        assertTrue(detector.detect("111111"))
-        assertTrue(detector.detect("10011010001"))
+        val detector = PasswordDetector()
+        assertTrue(detector.detect("aaaaH!aa"))
+        assertTrue(detector.detect("1234567*9J"))
+        assertTrue(detector.detect("asdpoihj;loikjasdf;ijp;lij2309jasd;lfkm20ij@aH"))
 
 
-        assertFalse(detector.detect("01"))
-        assertFalse(detector.detect("10"))
-        assertFalse(detector.detect("1000010"))
-        assertFalse(detector.detect("100a01"))
+
+        assertFalse(detector.detect("a"))
+        assertFalse(detector.detect("aaaaaaa!"))
+        assertFalse(detector.detect("aaaHaaaaa"))
+        assertFalse(detector.detect("Abbbbbbb!"))
         assertFalse(detector.detect(""))
     }
 }
